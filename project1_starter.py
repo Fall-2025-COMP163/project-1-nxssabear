@@ -64,19 +64,28 @@ def save_character(character, filename):
     """
     Saves character to text file in specific format
     Returns: True if successful, False if error occurred
-    
-    Required file format:
-    Character Name: [name]
-    Class: [class]
-    Level: [level]
-    Strength: [strength]
-    Magic: [magic]
-    Health: [health]
-    Gold: [gold]
     """
-    # TODO: Implement this function
-    # Remember to handle file errors gracefully
-    pass
+
+    if filename == "" or filename is None:
+        print("Error: Invalid filename")
+        return False 
+    
+    directory = os.path.dirname(filename)
+    if directory and not os.path.exists(directory):
+        print("Error: Directory does not exist")
+        return False
+    
+    save_character_file = open(filename, 'w')
+    save_character_file.write(f"Character Name: {character.get('name')}\n")
+    save_character_file.write(f"Class: {character.get('class')}\n")
+    save_character_file.write(f"Level: {character.get('level')}\n")
+    save_character_file.write(f"Strength: {character.get('strength')}\n")
+    save_character_file.write(f"Magic: {character.get('magic')}\n")
+    save_character_file.write(f"Health: {character.get('health')}\n")
+    save_character_file.write(f"Gold: {character.get('gold')}\n")
+    save_character_file.write(f"Equipment: {character.get('equipment')}\n")
+    save_character_file.close()
+    return True
 
 def load_character(filename):
     """
