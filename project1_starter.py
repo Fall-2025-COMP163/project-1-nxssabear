@@ -2,7 +2,7 @@
 COMP 163 - Project 1: Character Creator & Saving/Loading
 Name: Vanessa Gray
 Date: 28-Oct-2025
-AI Usage: AI was used to assist in the development/debugging of this code: save_character(), load_character() were the main two functions assisted by AI.
+AI Usage: AI was used to assist in the development/debugging & README of this code: save_character(), load_character() were the main two functions assisted by AI.
 """
 import os # for file path operations
 
@@ -17,24 +17,28 @@ def create_character(name, character_class):
                  "class": character_class,
                  "level": 1,
                  "strength": 5,
-                 "magic": 15,
+                 "magic": 5,
                  "health": 80,
-                 "gold": 100}
+                 "gold": 100,
+                 "equipment": " "
+                 }
     
 # character equipment based on class
-    if character_class == "Warrior":
+    if character_class == "Pirate":
         equipment = "Sword"
-    elif character_class == "Mage":
-        equipment = "Staff"
-    elif character_class == "Rogue":
-        equipment = "Dagger"
-    elif character_class == "Cleric":
-        equipment = "Book"
+    elif character_class == "Admiral":
+        equipment = "Marine Coat"
+    elif character_class == "Commodore":
+        equipment = "Den Den Mushi"
+    elif character_class == "Marine":
+        equipment = "Rifle"
     else:
         equipment = "Fists"
+    
+    character["equipment"] = equipment #AI assiatted in adding equipment because it was grayed out initially. 
 
     return character
-
+    
 # calculate stats based on class and level
 def calculate_stats(character_class, level):
     """
@@ -42,24 +46,26 @@ def calculate_stats(character_class, level):
     Returns: tuple of (strength, magic, health)
     """
 # calculate stats based on class 
-    if character_class == "Warrior":
-        strength    = 20 + (level * 7)
-        magic       = 1 + (level * 1)
-        health      = 100 + (level * 15)
-    elif character_class == "Mage":
-        strength    = 10 + (level * 1)
-        magic       = 15 + (level * 8)
-        health      = 95 + (level * 10)
-    elif character_class == "Rogue":
+    if character_class == "Pirate":
+        strength    = 25 + (level * 7)
+        magic       = 10 + (level * 2)
+        health      = 120 + (level * 11)
+    elif character_class == "Admiral":
+        strength    = 20 + (level * 5)
+        magic       = 25 + (level * 8)
+        health      = 130 + (level * 10)
+    elif character_class == "Commodore":
+        strength    = 18 + (level * 3)
+        magic       = 10 + (level * 5)
+        health      = 110 + (level * 9)
+    elif character_class == "Marine":
         strength    = 15 + (level * 2)
-        magic       = 7 + (level * 3)
-        health      = 80 + (level * 7)
-    elif character_class == "Cleric":
-        strength    = 8 + (level * 2)
-        magic       = 10 + (level * 4)
-        health      = 85 + (level * 5)
+        magic       = 10 + (level * 2)
+        health      = 100 + (level * 8)
     else:
-        None
+        strength    = 5 + (level * 1)
+        magic       = 0 + (level * 0)
+        health      = 70 + (level * 5)
     
     return (strength, magic, health)
 
