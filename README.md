@@ -1,99 +1,69 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/JTXl4WMa)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=21320703&assignment_repo_type=AssignmentRepo)
-# COMP 163 - Project 1: Character Creator & Chronicles
-# 🎯 Project Overview
+## 🏰 COMP 163 - Project 1: Character Creator & Saving/Loading
 
-Build a text-based RPG character creation and story progression system that demonstrates mastery of functions and file I/O operations.
+Name: Vanessa Gray
 
-# Required Functions 
-Complete these functions in project1_starter.py:
+Date: 28-Oct-2025
 
-create_character(name, character_class) - Create new character
+AI Usage: AI assisted in development/debugging and this README file, particularly for save_character() and load_character() functions.
 
-calculate_stats(character_class, level) - Calculate character stats
+## ✨ Project Overview
 
-save_character(character, filename) - Save character to file
+The Character Creator is an RPG-inspired system for creating and managing game characters. Users can level up with stats, gold, and equipment. Each class has its own strengths, weaknesses, and signature gear, making every character unique.
 
-load_character(filename) - Load character from file
+## 🛡️ Features
+1. Character Creation
 
-display_character(character) - Display character info
+Choose a name and class for your character.
 
-level_up(character) - Increase character level
+Classes include Warrior ⚔️, Mage 🪄, Pirate 🏴‍☠️, Admiral 🎖️, Commodore 🐌, Marine and others.
 
-# 🎭 Character Classes
-Implement these character classes with unique stat distributions:
+Each class has distinct stats for strength, magic (or special ability), and health.
 
+Characters automatically receive class-themed equipment as a bonus feature.
 
-Warrior: High strength, low magic, high health
+2. Dynamic Stats
 
-Mage: Low strength, high magic, medium health
+Stats scale naturally with level progression.
 
-Rogue: Medium strength, medium magic, low health
+Leveling up recalculates stats, reflecting growth and experience.
 
-Cleric: Medium strength, high magic, high health
+Ensures each class has unique and balanced stats.
 
-# 📁 Required File Format
-Your save_character() function must create files in this exact format:
+3. File Management
 
-Character Name: [name]
+Save character data to a text file in a structured, readable format.
 
-Class: [class]
+Load character data from a file to continue gameplay.
 
-Level: [level]
+Handles invalid filenames and missing directories gracefully.
 
-Strength: [strength]
+4. Character Sheet Display
 
-Magic: [magic]
+Prints a formatted character sheet in the console.
 
-Health: [health]
+Tracks stats, gold, and equipment for quick reference.
 
-Gold: [gold]
+5. Leveling Up
 
+Level up to automatically increase stats.
 
-# Run specific test file
-python -m pytest tests/test_character_creation.py -v
+Encourages strategic development of each hero.
 
-# Test your main program
+## 🌟 Creative Touches
+
+Class-themed equipment gives characters personality and style.
+
+Stat distributions are designed to reflect class identity: Pirates are brawny, Mages are magical, Admirals are strategic, etc.
+
+The system is expandable, allowing new classes, items, or stats to be added easily.
+
+## 📝 Notes
+
+All functions return structured outputs for testing and ease of use.
+
+Invalid input or missing files are handled gracefully to prevent program crashes.
+
+The equipment system is a bonus feature, enhancing character uniqueness.
+
+## How to Run
 python project1_starter.py
-
-GitHub Testing:
-
-After pushing your code, check the Actions tab to see automated test results:
-
-✅ Green checkmarks = tests passed
-❌ Red X's = tests failed (click to see details)
-
-# ⚠️ Important Notes
-Protected Files
-
-DO NOT MODIFY files in the tests/ directory
-
-DO NOT MODIFY files in the .github/ directory
-
-Modifying protected files will result in automatic academic integrity violation
-
-# AI Usage Policy
-
-✅ Allowed: AI assistance for implementation, debugging, learning
-
-📝 Required: Document AI usage in code comments
-
-🎯 Must be able to explain: Every line of code during interview
-
-# 📝 Submission Checklist
-
- All required functions implemented
- 
- Code passes all automated tests
- 
- README updated with your documentation
- 
- Interview scheduled and completed
- 
- AI usage documented in code comments
-
-# 🏆 Grading
-
-Implementation (70%): Function correctness, file operations, error handling
-
-Interview (30%): Code explanation and live coding challenge
