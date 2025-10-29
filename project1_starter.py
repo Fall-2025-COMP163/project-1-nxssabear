@@ -1,10 +1,8 @@
 """
 COMP 163 - Project 1: Character Creator & Saving/Loading
-Name: [Your Name Here]
-Date: [Date]
-
-AI Usage: [Document any AI assistance used]
-Example: AI helped with file I/O error handling logic in save_character function
+Name: Vanessa Gray
+Date: 28-Oct-2025
+AI Usage: AI was used to assist in the development/debugging & README of this code: save_character(), load_character() were the main two functions assisted by AI.
 """
 
 def create_character(name, character_class):
