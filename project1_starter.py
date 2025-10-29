@@ -19,6 +19,19 @@ def create_character(name, character_class):
                  "magic": 15,
                  "health": 80,
                  "gold": 100}
+    
+    if character_class == "Warrior":
+        equipment = "Sword"
+    elif character_class == "Mage":
+        equipment = "Staff"
+    elif character_class == "Rogue":
+        equipment = "Dagger"
+    elif character_class == "Cleric":
+        equipment = "Book"
+    else:
+        equipment = "Fists"
+
+    return character
 
 def calculate_stats(character_class, level):
     """
