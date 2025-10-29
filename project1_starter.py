@@ -92,9 +92,34 @@ def load_character(filename):
     Loads character from text file
     Returns: character dictionary if successful, None if file not found
     """
-    # TODO: Implement this function
-    # Remember to handle file not found errors
-    pass
+    load_character_file = open(filename, 'r')
+    lines = load_character_file.readlines()
+
+    character = {}
+    for line in lines:
+        key = line.strip().split(": ")
+        value = line.strip().split(": ")
+        key = key[0]
+        value = value[1]
+
+        if key == "Character Name":
+            character["name"] = value
+        elif key == "Class":
+            character["class"] = value
+        elif key == "Level":
+            character["level"] = int(value)
+        elif key == "Strength":
+            character["strength"] = int(value)
+        elif key == "Magic":
+            character["magic"] = int(value)
+        elif key == "Health":
+            character["health"] = int(value)
+        elif key == "Gold":
+            character["gold"] = int(value)
+        elif key == "Equipment":    
+            character["equipment"] = value
+    load_character_file.close()
+    return character
 
 def display_character(character):
     """
