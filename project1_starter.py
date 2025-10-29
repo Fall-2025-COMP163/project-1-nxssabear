@@ -2,7 +2,7 @@
 COMP 163 - Project 1: Character Creator & Saving/Loading
 Name: Vanessa Gray
 Date: 28-Oct-2025
-AI Usage: AI was used to assist in the development/debugging & README of this code: save_character(), load_character() were the main two functions assisted by AI.
+AI Usage: AI was used to assist in the development/debugging of this code: save_character(), load_character() were the main two functions assisted by AI.
 """
 import os # for file path operations
 
@@ -17,15 +17,15 @@ def create_character(name, character_class):
                  "class": character_class,
                  "level": 1,
                  "strength": 5,
-                 "magic": 5,
+                 "magic": 15,
                  "health": 80,
-                 "gold": 100,
-                 "equipment": " "
-                 }
-    
+                 "gold": 100}
+
 # character equipment based on class
-    if character_class == "Pirate":
+    if character_class == "Warrior":
         equipment = "Sword"
+    elif character_class == "Mage":
+        equipment = "Staff"
     elif character_class == "Admiral":
         equipment = "Marine Coat"
     elif character_class == "Commodore":
@@ -34,40 +34,42 @@ def create_character(name, character_class):
         equipment = "Rifle"
     else:
         equipment = "Fists"
-    
-    character["equipment"] = equipment #AI assiatted in adding equipment because it was grayed out initially. 
 
     return character
-    
+
 # calculate stats based on class and level
 def calculate_stats(character_class, level):
     """
     Calculates base stats based on class and level
     Returns: tuple of (strength, magic, health)
     """
-# calculate stats based on class 
-    if character_class == "Pirate":
-        strength    = 25 + (level * 7)
-        magic       = 10 + (level * 2)
-        health      = 120 + (level * 11)
+    if character_class == "Warrior":
+        strength = 25 + (level * 7)
+        magic    = 5 + (level * 2)
+        health   = 120 + (level * 13)
+    elif character_class == "Mage":
+        strength = 8 + (level * 2)
+        magic    = 30 + (level * 9)
+        health   = 90 + (level * 8)
     elif character_class == "Admiral":
-        strength    = 20 + (level * 5)
-        magic       = 25 + (level * 8)
-        health      = 130 + (level * 10)
+        strength = 15 + (level * 4)
+        magic    = 25 + (level * 8)
+        health   = 110 + (level * 10)
     elif character_class == "Commodore":
-        strength    = 18 + (level * 3)
-        magic       = 10 + (level * 5)
-        health      = 110 + (level * 9)
+        strength = 18 + (level * 5)
+        magic    = 12 + (level * 4)
+        health   = 100 + (level * 9)
     elif character_class == "Marine":
-        strength    = 15 + (level * 2)
-        magic       = 10 + (level * 2)
-        health      = 100 + (level * 8)
+        strength = 10 + (level * 3)
+        magic    = 15 + (level * 4)
+        health   = 95 + (level * 9)
     else:
-        strength    = 5 + (level * 1)
-        magic       = 0 + (level * 0)
-        health      = 70 + (level * 5)
-    
+        strength = 5 + (level * 1)
+        magic    = 1 + (level * 1)
+        health   = 70 + (level * 5)
+
     return (strength, magic, health)
+
 
 # save character to file
 def save_character(character, filename):
@@ -79,13 +81,13 @@ def save_character(character, filename):
     if filename == "" or filename is None:
         print("Error: Invalid filename")
         return False 
-    
+
 # check if directory exists
     directory = os.path.dirname(filename)
     if directory and not os.path.exists(directory):
         print("Error: Directory does not exist")
         return False
-    
+
     # write character data to file
     save_character_file = open(filename, 'w')
     save_character_file.write(f"Character Name: {character.get('name')}\n")
@@ -110,6 +112,8 @@ def load_character(filename):
         print("Error: File not found")
         return None
     # check if file exists
+    load_character_file = open(filename, 'r') # open file for reading
+    lines = load_character_file.readlines()
     
     # read character data from file
     with open(filename, 'r') as load_character_file: # open file for reading
@@ -141,7 +145,7 @@ def load_character(filename):
             character["equipment"] = value
     load_character_file.close()
     return character
-    
+
 # display character sheet
 def display_character(character):
     """
@@ -176,7 +180,7 @@ def level_up(character):
     character["health"] = new_health
     character["magic"] = new_magic
     character["strength"] = new_strength
-        
+
     print("You leveled up!")
     return character
 
@@ -193,4 +197,3 @@ if __name__ == "__main__":
     display_character(loaded)
     leveled = level_up(loaded)  
     display_character(leveled)
-
