@@ -99,9 +99,15 @@ def load_character(filename):
     Loads character from text file
     Returns: character dictionary if successful, None if file not found
     """
+
+    if not os.path.exists(filename):
+        print("Error: File not found")
+        return None
     # check if file exists
-    load_character_file = open(filename, 'r') # open file for reading
-    lines = load_character_file.readlines()
+    
+    # read character data from file
+    with open(filename, 'r') as load_character_file: # open file for reading
+        lines = load_character_file.readlines()
 
     character = {} # create empty dictionary to hold character data
     for line in lines: # iterate through each line in the file
