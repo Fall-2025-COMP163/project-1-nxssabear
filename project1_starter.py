@@ -4,19 +4,21 @@ Name: Vanessa Gray
 Date: 28-Oct-2025
 AI Usage: AI was used to assist in the development/debugging & README of this code: save_character(), load_character() were the main two functions assisted by AI.
 """
+import os
 
 def create_character(name, character_class):
     """
     Creates a new character dictionary with calculated stats
     Returns: dictionary with keys: name, class, level, strength, magic, health, gold
-    
-    Example:
-    char = create_character("Aria", "Mage")
-    # Should return: {"name": "Aria", "class": "Mage", "level": 1, "strength": 5, "magic": 15, "health": 80, "gold": 100}
     """
-    # TODO: Implement this function
-    # Remember to use calculate_stats() function for stat calculation
-    pass
+
+    character = {"name": name,
+                 "class": character_class,
+                 "level": 1,
+                 "strength": 5,
+                 "magic": 15,
+                 "health": 80,
+                 "gold": 100}
 
 def calculate_stats(character_class, level):
     """
